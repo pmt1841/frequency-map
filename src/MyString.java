@@ -14,15 +14,13 @@ public class MyString {
         for (int i = 0; i < words.length; i++) {
             words[i] = words[i].toLowerCase();
             boolean wordIsContained = frequencyMap.containsKey(words[i]);
-            if (wordIsContained) {
-                frequencyMap.computeIfPresent(words[i], (k, v) -> v + 1);
-            } else {
+            if (wordIsContained)
+                frequencyMap.computeIfPresent(words[i], (key, value) -> value + 1);
+            else
                 frequencyMap.put(words[i], 1);
-            }
         }
 
-        for(Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
+        for(Map.Entry<String, Integer> entry : frequencyMap.entrySet())
             System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
     }
 }
